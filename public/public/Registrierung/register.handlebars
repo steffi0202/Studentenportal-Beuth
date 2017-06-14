@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<h2 class="page-header">Registrierung</h2>
+{{#if errors}}
+      {{#each errors}}
+        <div class="alert alert-danger">{{msg}}</div>
+      {{/each}}
+{{/if}}
+<form method="post" action="/users/register" class="jumbotron">
+   <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" placeholder="Name" name="name">
+  </div>
+  <div class="form-group">
+    <label>Username</label>
+    <input type="text" class="form-control" placeholder="Username" name="username">
+  </div>
+   <div class="form-group">
+    <label>Gültige Beuth-E-Mail-Adresse ("@beuth-hochschule.de")</label>
+    <input type="email" class="form-control" placeholder="Email" name="email">
+  </div>
+  <div class="form-group">
+    <label>Passwort</label>
+    <input type="password" class="form-control" placeholder="Passwort" name="password">
+  </div>
+  <div class="form-group">
+    <label>Passwort bestätigen</label>
+    <input type="password" class="form-control" placeholder="Passwort" name="password2">
+  </div>
+  <button type="submit" class="btn btn-default">Abschicken</button>
+</form>
+
+</body>
+</html>
