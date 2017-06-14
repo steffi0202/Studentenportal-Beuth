@@ -20,6 +20,16 @@ router.get('/main', function(req, res){
 	res.render('main');
 });
 
+// Index
+router.get('/index', function(req, res){
+	res.render('index');
+});
+
+// Dashboard
+router.get('/dashboard', ensureAuthenticated, function(req, res){
+	res.render('dashboard');
+});
+
 // About
 router.get('/about', function(req, res){
 	res.render('about');
@@ -142,9 +152,9 @@ passport.deserializeUser(function(id, done) {
 });
 
 router.post('/login',
-  passport.authenticate('local', {successRedirect:'/', failureRedirect:'/users/login',failureFlash: true}),
+  passport.authenticate('local', {successRedirect:'/users/dashboard', failureRedirect:'/users/main',failureFlash: true}),
   function(req, res) {
-    res.redirect('/');
+    res.redirect('/users/dashboard');
   });
 
 router.get('/logout', function(req, res){
@@ -152,7 +162,7 @@ router.get('/logout', function(req, res){
 
 	req.flash('success_msg', 'Du hast dich ausgeloggt');
 
-	res.redirect('/users/login');
+	res.redirect('/users/main');
 });
 
 module.exports = router;
