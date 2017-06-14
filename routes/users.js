@@ -20,6 +20,7 @@ router.get('/main', function(req, res){
 	res.render('main');
 });
 
+<<<<<<< HEAD
 // Index
 router.get('/index', function(req, res){
 	res.render('index');
@@ -30,6 +31,8 @@ router.get('/dashboard', ensureAuthenticated, function(req, res){
 	res.render('dashboard');
 });
 
+=======
+>>>>>>> d33c735874449f05d0080cd4bef0f6896562df96
 // About
 router.get('/about', function(req, res){
 	res.render('about');
@@ -152,9 +155,15 @@ passport.deserializeUser(function(id, done) {
 });
 
 router.post('/login',
+<<<<<<< HEAD
   passport.authenticate('local', {successRedirect:'/users/dashboard', failureRedirect:'/users/main',failureFlash: true}),
   function(req, res) {
     res.redirect('/users/dashboard');
+=======
+  passport.authenticate('local', {successRedirect:'/', failureRedirect:'/users/login',failureFlash: true}),
+  function(req, res) {
+    res.redirect('/');
+>>>>>>> d33c735874449f05d0080cd4bef0f6896562df96
   });
 
 router.get('/logout', function(req, res){
@@ -162,7 +171,11 @@ router.get('/logout', function(req, res){
 
 	req.flash('success_msg', 'Du hast dich ausgeloggt');
 
+<<<<<<< HEAD
 	res.redirect('/users/main');
+=======
+	res.redirect('/users/login');
+>>>>>>> d33c735874449f05d0080cd4bef0f6896562df96
 });
 
 module.exports = router;
