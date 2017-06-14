@@ -14,17 +14,16 @@
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom Fonts 
+    <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>-->
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
-    <!-- Plugin CSS 
-    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">-->
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- Theme CSS -->
     <link href="css/creative.min.css" rel="stylesheet">
-    <link href="css/carousel.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -34,51 +33,6 @@
     <![endif]-->
 
 </head>
-
-<header>
-        <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
-  <!-- Overlay -->
-  <div class="overlay"></div>
-
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
-    <li data-target="#bs-carousel" data-slide-to="1"></li>
-    <li data-target="#bs-carousel" data-slide-to="2"></li>
-  </ol>
-  
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item slides active">
-      <div class="slide-1"></div>
-      <div class="hero">
-        <button class="btn btn-hero btn-lg" role="button">Weitere Info's</button>
-      </div>
-    </div>
-    <div class="item slides">
-      <div class="slide-2"></div>
-      <div class="hero">        
-        <hgroup>
-            <h1>Event #2</h1>        
-            <h3>Hier steht was zum Event</h3>
-        </hgroup>       
-        <button class="btn btn-hero btn-lg" role="button">Weitere Info's</button>
-      </div>
-    </div>
-    <div class="item slides">
-      <div class="slide-3"></div>
-      <div class="hero">        
-        <hgroup>
-            <h1>Event #3</h1>        
-            <h3>Hier steht was zum Event</h3>
-        </hgroup>
-        <button class="btn btn-hero btn-lg" role="button">Weitere Info's</button>
-      </div>
-    </div>
-  </div> 
-</div>
-    </header>
-
 
 <body id="page-top">
 
@@ -95,12 +49,21 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-
+                    
+<!-- Auskommentiert
                     <li>
-                        <a class="page-scroll" href="#login">Login</a>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+
+--> 
+                    <li>
+                        <a class="page-scroll" href="/users/login">Login</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#services">Services</a>
+                    </li>
+                    <li>
+                        <a href="/upload">Upload</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#portfolio">Portfolio</a>
@@ -115,6 +78,94 @@
         <!-- /.container-fluid -->
     </nav>
 
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1 id="homeHeading">Studentenportal Beuth Hochschule Berlin</h1>
+                <hr>
+                <p>Registriere dich jetzt um Dozenten und Module zu bewerten .... Text folgt....</p>
+                <a class="btn btn-primary btn-xl page-scroll" href="users/register">Registrieren</a>
+            </div>
+        </div>
+    </header>
+
+<!-- 	Auskommentiert
+
+    <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">We've got what you need!</h2>
+                    <hr class="light">
+                    <p class="text-faded">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
+                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+-->
+
+
+	<section class="bg-primary" id="login">
+
+        <div class="container">
+            <div class="row">
+	
+	<div class="call-to-action">
+	<div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Melde dich an und lege gleich los!</h2>
+                    <hr class="light">
+                    <p class="text-faded">Hilf anderen Studenten und teile deinen Content und Erfahrungen zum Studium hier!</p>
+                    <a href="register/register.html#login" class="page-scroll btn btn-default btn-xl sr-button">Login</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">At Your Service</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
+                        <h3>Modulbewertung</h3>
+                        <p class="text-muted">Bewerte Module und erfahre wie andere Studenten dein Modul fanden</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
+                        <h3>Dozentenbewertung</h3>
+                        <p class="text-muted">Bewerte deine Dozenten und erfahre wie andere Studenten deinen Dozenten bewertet haben</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
+                        <h3>Up to Date</h3>
+                        <p class="text-muted">Sei immer auf den neuesten Stand, was an der Beuth Hochschule passiert</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
+                        <h3>Forum</h3>
+                        <p class="text-muted">Tausche dich im Forum mit anderen Studenten aus und sei Teil der Community</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="no-padding" id="portfolio">
         <div class="container-fluid">
@@ -125,10 +176,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Event
+                                    Category
                                 </div>
                                 <div class="project-name">
-                                    noch ein Satz
+                                    Project Name
                                 </div>
                             </div>
                         </div>
@@ -140,10 +191,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Event
+                                    Category
                                 </div>
                                 <div class="project-name">
-                                    Noch ein Satz
+                                    Project Name
                                 </div>
                             </div>
                         </div>
@@ -155,10 +206,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Event
+                                    Category
                                 </div>
                                 <div class="project-name">
-                                    Noch ein Satz
+                                    Project Name
                                 </div>
                             </div>
                         </div>
@@ -170,10 +221,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Event
+                                    Category
                                 </div>
                                 <div class="project-name">
-                                    Noch ein Satz
+                                    Project Name
                                 </div>
                             </div>
                         </div>
@@ -185,10 +236,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Event
+                                    Category
                                 </div>
                                 <div class="project-name">
-                                    Noch ein Satz
+                                    Project Name
                                 </div>
                             </div>
                         </div>
@@ -200,10 +251,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Event
+                                    Category
                                 </div>
                                 <div class="project-name">
-                                    Noch ein Satz
+                                    Project Name
                                 </div>
                             </div>
                         </div>
@@ -212,6 +263,16 @@
             </div>
         </div>
     </section>
+<!--
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2>Free Download at Start Bootstrap!</h2>
+                <a href="http://startbootstrap.com/template-overviews/creative/" class="btn btn-default btn-xl sr-button">Download Now!</a>
+            </div>
+        </div>
+    </aside>
+-->
     <section id="contact">
         <div class="container">
             <div class="row">
