@@ -40,6 +40,11 @@ router.get('/dozenten', ensureAuthenticated, function(req, res){
 	res.render('dozenten');
 });
 
+router.get('/bewertung', ensureAuthenticated, function(req, res){
+	res.render('bewertung');
+});
+
+
 // Modulbewertung
 router.get('/module', ensureAuthenticated, function(req, res){
 	res.render('module');
