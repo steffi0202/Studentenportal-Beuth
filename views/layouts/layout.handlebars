@@ -4,17 +4,48 @@
 	<title> {{ title }} </title>
 	<link rel="stylesheet" href="/css/bootstrap.css" />
 	<link rel="stylesheet" href="/css/style.css" />
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+	<link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	    <!-- Plugin CSS -->
+    <link href="../vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
+    <!-- Theme CSS -->
+    <link href="../vendor/bootstrap/css/creative.min.css" rel="stylesheet">
+	
+	<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../vendor/bootstrap/js/dropdown.js"></script>
+	
+	<script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+	
+    <!-- Theme CSS -->
+    <link href="../vendor/css/creative.min.css" rel="stylesheet">
+
+    <!-- Theme JavaScript -->
+    <script src="../vendor/bootstrap/js/creative.min.js"></script>
 </head>
 <body>
 	<div class="container">
       <div class="header clearfix">
+
         <nav>
           <ul class="nav nav-pills pull-right">
             {{#if user}}
               <li role="presentation"><a href="/users/dashboard">Dashboard</a></li>
+			  <li role="presentation"><a href="/users/bewertung">Bewertung</a></li>
+			  <li role="presentation"><a href="/users/fileupload">Upload</a></li>
+			  <li role="presentation"><a href="/users/download">Download</a></li>
+			  <li role="presentation"><a href="#">Forum</a></li>
+			  <li role="presentation"><a href="#">Mensa</a></li>
+			  <li role="presentation"><a href="#">Events</a></li>
               <li role="presentation"><a href="/users/logout">Logout</a></li>
             {{else}}
+			  <li role="presentation"><a href="/users/main">Start</a></li>
+			  <li role="presentation"><a href="#">Mensa</a></li>
+			  <li role="presentation"><a href="#">Events</a></li>
               <li role="presentation"><a href="/users/login">Login</a></li>
               <li role="presentation"><a href="/users/register">Registrierung</a></li>
             {{/if}}

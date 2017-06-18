@@ -2,7 +2,9 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-
+var formidable = require('formidable');
+var fs = require('fs');
+var multer = require('multer');
 var User = require('../models/user');
 
 // Register
@@ -18,11 +20,6 @@ router.get('/login', function(req, res){
 // Startseite
 router.get('/main', function(req, res){
 	res.render('main');
-});
-
-// Index
-router.get('/index', function(req, res){
-	res.render('index');
 });
 
 // Dashboard
@@ -44,25 +41,45 @@ router.get('/bewertung', ensureAuthenticated, function(req, res){
 	res.render('bewertung');
 });
 
-
-// Modulbewertung
-router.get('/module', ensureAuthenticated, function(req, res){
-	res.render('module');
+// Dokumente hochladen
+router.get('/fileupload', ensureAuthenticated, function(req, res){
+	res.render('fileupload');
 });
 
-// Dokumente hochladen
-router.get('/uploads', ensureAuthenticated, function(req, res){
-	res.render('uploads');
-});
+router.post('/fileupload', ensureAuthenticated, function(req, res){
 
-// Dokumente hochladen
-router.get('/service', ensureAuthenticated, function(req, res){
-	res.render('uploadFileService');
-});
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields, files) {
+      var oldpath = files.filetoupload.path;
+      var newpath = './uploads/' + files.filetoupload.name;
+      fs.rename(oldpath, newpath, function (err) {
+        if (err) throw err;
+		req.flash('success_msg', 'Deine Datei wurde hochgeladen!');
+		res.redirect('/users/dashboard');
+        //res.write('File uploaded');
+		res.end();
+      });
+ 	});
+});    
 
-// Dokumente hochladen
-router.get('/controllers', ensureAuthenticated, function(req, res){
-	res.render('mainCtrl');
+//Download-TEIL von Christoph
+/*
+app.get('/download', function(req, res){
+
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write('<a href="/uploads/Zusammenfassung_MEAN.pdf">Zusammenfassung_MEAN.pdf</a>')
+
+    return res.end();
+ 
+});*/
+
+router.get('/download', ensureAuthenticated, function(req, res){
+	//res.render('download');
+	var file = './uploads/' + 'Zusammenfassung_MEAN.pdf';
+	
+ 	res.download(file);
+	
+
 });
 
 function ensureAuthenticated(req, res, next){
@@ -84,8 +101,48 @@ router.get('/kontakt', function(req, res){
 	res.render('kontakt');
 });
 
+/*
+
+// Index
+router.get('/index', function(req, res){
+	res.render('index');
+});
+// Modulbewertung
+router.get('/module', ensureAuthenticated, function(req, res){
+	res.render('module');
+});
+
+
+// Dokumente hochladen
+router.get('/service', ensureAuthenticated, function(req, res){
+	res.render('uploadFileService');
+});
+
+// Dokumente hochladen
+router.get('/controllers', ensureAuthenticated, function(req, res){
+	res.render('mainCtrl');
+});
+*/
+
 // Register User
-router.post('/register', function(req, res){
+
+
+//falls es den Usernamen schon gibt, mache keinen neuen mit dem gleichen Namen
+function userExist(req, res, next) {
+    User.count({
+        username: req.body.username
+    }, function (err, count) {
+        if (count === 0) {
+            next();
+        } else {
+			req.flash('error_msg', 'Dieser Username ist bereits vergeben!');
+            res.redirect("/users/register");
+        }
+    });
+}
+
+
+router.post('/register', userExist, function(req, res){
 	var name = req.body.name;
 	var email = req.body.email;
 	var username = req.body.username;
@@ -157,7 +214,7 @@ passport.deserializeUser(function(id, done) {
 });
 
 router.post('/login',
-  passport.authenticate('local', {successRedirect:'/users/dashboard', failureRedirect:'/users/main',failureFlash: true}),
+  passport.authenticate('local', {successRedirect:'/users/dashboard', failureRedirect:'/users/login',failureFlash: true}),
   function(req, res) {
     res.redirect('/users/dashboard');
   });
