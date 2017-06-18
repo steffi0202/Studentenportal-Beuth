@@ -33,10 +33,35 @@
                     <h2 class="section-heading">Bewerte jetzt deinen Studiengang!</h2>
                     <hr class="light">
                     <p class="text-faded">Hilf anderen Studenten und teile deinen Content und deine Erfahrungen zum Studium hier!</p>
-                    <form method="post" action="/addranking">
-                    <div class="form-group">
+                    <!--form method="post" action="/addranking"-->
+					
+                    <form method="post" action="/users/bewertung">					
+                    
+					<div class="form-group">
+                        <label for="Studiengang">Wähle das Semester:</label>
+                            <select class="form-control" id="Semester" name="semester">
+                                 <option>Wintersemester 2009 / 2010</option>
+                                 <option>Sommersemester 2010</option>
+                                 <option>Wintersemester 2010 / 2011</option>
+                                 <option>Sommersemester 2011</option>
+                                 <option>Wintersemester 2011 / 2012</option>
+                                 <option>Sommersemester 2012</option>
+                                 <option>Wintersemester 2012 / 2013</option>
+                                 <option>Sommersemester 2013</option>
+								 <option>Wintersemester 2013 / 2014</option>
+                                 <option>Sommersemester 2014</option>
+                                 <option>Wintersemester 2014 / 2015</option>
+                                 <option>Sommersemester 2015</option>
+                                 <option>Wintersemester 2015 / 2016</option>
+                                 <option>Sommersemester 2016</option>
+                                 <option>Wintersemester 2016 / 2017</option>
+                                 <option>Sommersemester 2017</option>
+                            </select>
+                     </div>
+					
+					<div class="form-group">
                         <label for="Studiengang">Wähle deinen Studiengang:</label>
-                            <select class="form-control" id="Studiengang">
+                            <select class="form-control" id="Studiengang" name="studiengang">
                                  <option>Wirtschaftsinformatik - Online</option>
                                  <option>Medieninformatik - Online</option>
                                  <option>3</option>
@@ -44,9 +69,10 @@
                                  <option>5</option>
                             </select>
                      </div>
+					 
                      <div class="form-group">
                         <label for="Modul">Wähle dein Modul:</label>
-                            <select class="form-control" id="Modul">
+                            <select class="form-control" id="Modul" name="modul">
                                  <option>Business Engineering</option>
                                  <option>Operations Research</option>
                                  <option>3</option>
@@ -54,9 +80,10 @@
                                  <option>5</option>
                             </select>
                      </div>
+					 
                      <div class="form-group">
                         <label for="Zeitaufwand">Wieviel Stunden hast du pro Woche für das Modul benötigt?</label>
-                            <select class="form-control" id="Zeitaufwand">
+                            <select class="form-control" id="Zeitaufwand" name="aufwand">
                                  <option>1</option>
                                  <option>2</option>
                                  <option>3</option>
@@ -68,11 +95,12 @@
 
                       <div class="form-group">
                         <label for="Textarea-Modul">Beschreibe das Modul</label>
-                            <textarea class="form-control" id="Textarea-Modul" rows="3"></textarea>
-                         </div>
+                            <textarea class="form-control" id="Textarea-Modul" rows="3" name="modulbeschreibung"></textarea>
+                      </div>
+						 
                       <div class="form-group">
-                        <label for="Dozent">Wer hat das Modul unterrrichtet:</label>
-                            <select class="form-control" id="Modul">
+                        <label for="Dozent">Wer hat das Modul unterrichtet:</label>
+                            <select class="form-control" id="Modul" name="dozent">
                                  <option>Prof. Dr. Peter Weimann</option>
                                  <option>Jane Brosnan</option>
                                  <option>3</option>
@@ -80,16 +108,18 @@
                                  <option>5</option>
                             </select>
                      </div>
+					 
                      <div class="form-group">
                         <label for="Textarea-Dozent">Was ist dir zu deinem Dozenten besondern im Gedächtnis geblieben?</label>
-                            <textarea class="form-control" id="Textarea-Dozent" rows="3"></textarea>
-                         </div>
-                         <div>
-                         <label for="star-rating">Wie viele Sterne bekommt das Modul und der Dozent von dir?</label>
-                        <input id="input-21b" value="4" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="lg"
-                        required title="">
-                        <div class="clearfix"></div>
-                        <hr>
+                            <textarea class="form-control" id="Textarea-Dozent" rows="3" name="dozentbeschreibung"></textarea>
+                     </div>
+                         
+						<div>
+							<label for="star-rating">Wie viele Sterne bekommt das Modul und der Dozent von dir?</label>
+							<input id="input-21b" value="4" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="lg"
+							required title="" name="bewertung">
+							<div class="clearfix"></div>
+							<hr>
                         </div>
                         <input type="submit" class="page-scroll btn btn-default btn-xl sr-button" value="bewerten">
                         </form>

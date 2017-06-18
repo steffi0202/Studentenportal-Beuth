@@ -6,6 +6,8 @@ var formidable = require('formidable');
 var fs = require('fs');
 var multer = require('multer');
 var User = require('../models/user');
+var Bewertung = require('../models/bewertung');
+
 
 // Register
 router.get('/register', function(req, res){
@@ -226,5 +228,50 @@ router.get('/logout', function(req, res){
 
 	res.redirect('/users/main');
 });
+
+
+
+
+router.post('/bewertung', function(req, res){
+
+	var studiengang = req.body.studiengang;
+	var semester = req.body.semester;
+	var modul = req.body.modul;
+	var aufwand = req.body.aufwand;
+	var modulbeschreibung = req.body.modulbeschreibung;
+	var dozent = req.body.dozent;
+	var dozentbeschreibung = req.body.dozentbeschreibung;
+	var bewertung = req.body.bewertung;
+
+	var errors = req.validationErrors();
+
+	if(errors){
+		res.render('bewertung',{
+			errors:errors
+		});
+	} else {
+		var newBewertung = new Bewertung({
+			semester: semester,
+			studiengang: studiengang,
+			dozent: dozent,
+			modul: modul,
+			modulbeschreibung: modulbeschreibung,
+			dozentbeschreibung: dozentbeschreibung,
+			aufwand: aufwand, 
+			bewertung: bewertung			
+		});
+		
+		
+		Bewertung.createBewertung(newBewertung, function(err, bewertung){
+			if(err) throw err;
+			console.log(bewertung);
+		});
+
+		req.flash('success_msg', 'Danke, deine Bewertung wurde gespeichert!');
+
+		res.redirect('/users/dashboard');
+	}
+});
+
 
 module.exports = router;

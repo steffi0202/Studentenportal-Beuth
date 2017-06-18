@@ -1,22 +1,40 @@
 var mongoose = require('mongoose');
 
 // User Schema
-var DozentSchema = mongoose.Schema({
-	vorname: {
+var BewertungSchema = mongoose.Schema({
+	bewID: {
 		type: String,
 		index:true
 	},
-	nachname: {
+	semester: {
 		type: String
 	},
-	fachbereich: {
+	studiengang: {
 		type: String
 	},
-	anzahlbewertungen: {
+	dozent: {
+		type: String
+	},
+	modulName: {
+		type: String
+	},
+	modulBeschreibung: {
+		type: String
+	},
+	dozentBeschreibung: {
+		type: String
+	},
+	anzahlStunden: {
+		type: Number
+	},
+	anzahlBewertungen: {
+		type: Number
+	},
+	abgegebeneBewertung: {
 		type: Number
 	},
 	durchschnittsbewertung: {
-		type: String
+		type: Number
 	}	
 });
 
