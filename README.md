@@ -5,8 +5,10 @@
 
 ## Datenbankeinträge prüfen unter mongo.exe:
 
-In die Beuthportal-DB wechseln mit dem Befehl "use beuthportal"
+- GitBash starten
 
-User anzeigen mit "db.users.find()"
+- In die Beuthportal-DB wechseln mit dem Befehl "use beuthportal"
 
-Bewertungen anzeigen mit "db.bewertungs.find()" (bewertungs mit s, nicht bewertung)
+- User anzeigen mit "db.users.find()"
+
+- Bewertungen anzeigen mit "db.bewertungs.find()" (bewertungs mit s, nicht bewertung)
