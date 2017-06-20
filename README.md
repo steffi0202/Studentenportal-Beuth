@@ -1,12 +1,9 @@
 # Studentenportal-Beuth
-siehe "Zusammenfassung_MEAN.pdf"
+1) siehe "Zusammenfassung_MEAN_V2.pdf"
+    Vorher evtl. "npm install --save" ausführen, um notwendige Pakete zu installieren.
+2) GitHub starten und Repository nach "C:\nodeprojects\" clonen
 
-starten mit "node app".
-
-Vorher evtl. "npm install --save" ausführen, um notwendige Pakete zu installieren.
-
-
-Datenbankeinträge prüfen unter mongo.exe:
+## Datenbankeinträge prüfen unter mongo.exe:
 
 In die Beuthportal-DB wechseln mit dem Befehl "use beuthportal"
 
