@@ -1,13 +1,13 @@
 {
-  "name": "beuthportal",
+  "name": "app",
   "version": "1.0.0",
   "description": "prototype for beuthportal",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
-  "author": "SWTProjekt",
+  "author": "SWTProjekt-Team",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -33,5 +33,10 @@
     "snyk": "latest",
     "tap-spec": "latest",
     "tape": "latest"
+  },
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.4.2"
   }
 }

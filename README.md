@@ -12,3 +12,19 @@
 - User anzeigen mit "db.users.find()"
 
 - Bewertungen anzeigen mit "db.bewertungs.find()" (bewertungs mit s, nicht bewertung)
+
+## Testing (erste Version):
+
+- Tests definieren im Unterordner test
+
+- mocha, chai und chai-http installieren mit "npm install mocha chai chai-http --save-dev"
+
+- "npm install mocha -g" ausführen
+
+- Testen mit "npm run test -s"
+
+- siehe https://groundberry.github.io/development/2016/12/10/testing-express-with-mocha-and-chai.html
+
+- siehe https://www.youtube.com/watch?v=MLTRHc5dk6s
+
+- Achtung: unterschiedliche Syntax, je nachdem ob man mit "assert", "should" oder "expect" testet!

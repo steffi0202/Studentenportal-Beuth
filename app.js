@@ -23,6 +23,37 @@ var users = require('./routes/users');
 // Init App
 var app = express();
 
+//Testing
+
+var cache = {};
+
+	function sayHello(){
+		return 'hello';	
+	};
+	
+	function addNumbers(value1, value2){
+		return value1 + value2;
+	};
+	
+app.post('/set', function(req, res) {
+  var query = req.query;
+  Object.keys(query).forEach(function(key) {
+    cache[key] = query[key];
+  });
+  res.status(200).end();
+});
+
+app.get('/get', function(req, res) {
+  res.send(cache[req.query.key]);
+});
+
+module.exports = {
+	sayHello,
+	addNumbers
+};
+module.exports = app;
+
+
 // Handlebars Konfiguration
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs({defaultLayout:'layout'}));
@@ -81,9 +112,6 @@ app.use('/', routes);
 app.use('/users', users);
 
 
-
-
-
 //UPLOAD-TEIL von Christoph
 
 app.post('/fileupload', function(req, res){
@@ -117,7 +145,6 @@ app.get('/download', function(req, res){
  	res.download(file);
 
 });
-
 
 
 // Set Port
