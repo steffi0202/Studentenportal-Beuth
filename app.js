@@ -10,7 +10,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
-
+var connect = require('connect');
 var formidable = require('formidable');
 var fs = require('fs');
 
@@ -67,6 +67,9 @@ app.use(cookieParser());
 // Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(connect.bodyParser());
+app.use(connect.json());
+
 // Express Session
 app.use(session({
     secret: 'secret',
@@ -110,41 +113,6 @@ app.use(function (req, res, next) {
 
 app.use('/', routes);
 app.use('/users', users);
-
-
-//UPLOAD-TEIL von Christoph
-
-app.post('/fileupload', function(req, res){
-
-    var form = new formidable.IncomingForm();
-    form.parse(req, function (err, fields, files) {
-      var oldpath = files.filetoupload.path;
-      var newpath = './uploads/' + files.filetoupload.name;
-      fs.rename(oldpath, newpath, function (err) {
-        if (err) throw err;
-        res.write('File uploaded');
-        res.end();
-      });
- 	});
-});    
-
-//Download-TEIL von Christoph
-/*
-app.get('/download', function(req, res){
-
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write('<a href="/uploads/Zusammenfassung_MEAN.pdf">Zusammenfassung_MEAN.pdf</a>')
-
-    return res.end();
- 
-});
-*/
-app.get('/download', function(req, res){
-	var file = __dirname + '/uploads/' + 'Zusammenfassung_MEAN.pdf';
-	
- 	res.download(file);
-
-});
 
 
 // Set Port

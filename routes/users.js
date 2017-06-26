@@ -7,6 +7,7 @@ var fs = require('fs');
 var multer = require('multer');
 var User = require('../models/user');
 var Bewertung = require('../models/bewertung');
+var path = require('path');
 
 
 // Register
@@ -48,41 +49,87 @@ router.get('/fileupload', ensureAuthenticated, function(req, res){
 	res.render('fileupload');
 });
 
-router.post('/fileupload', ensureAuthenticated, function(req, res){
 
-    var form = new formidable.IncomingForm();
-    form.parse(req, function (err, fields, files) {
-      var oldpath = files.filetoupload.path;
-      var newpath = './uploads/' + files.filetoupload.name;
-      fs.rename(oldpath, newpath, function (err) {
-        if (err) throw err;
-		req.flash('success_msg', 'Deine Datei wurde hochgeladen!');
-		res.redirect('/users/dashboard');
-        //res.write('File uploaded');
-		res.end();
-      });
- 	});
-});    
+router.get('/:file(*)', function(req, res, next){ // this routes all types of file
 
-//Download-TEIL von Christoph
-/*
-app.get('/download', function(req, res){
+  var path=require('path');
 
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write('<a href="/uploads/Zusammenfassung_MEAN.pdf">Zusammenfassung_MEAN.pdf</a>')
+  var file = req.params.file;
 
-    return res.end();
- 
-});*/
+  var path = path.resolve(".")+'/uploads/'+file;
 
-router.get('/download', ensureAuthenticated, function(req, res){
-	//res.render('download');
-	var file = './uploads/' + 'Zusammenfassung_MEAN.pdf';
-	
- 	res.download(file);
-	
+  res.download(path); // magic of download function
 
 });
+
+
+var fs = require('fs');  
+
+router.post('/upload', function(req, res) {
+
+  var path=require('path'); // add path module
+
+    fs.readFile(req.files.image.path, function (err, data){ // readfilr from the given path
+
+    var dirname = path.resolve(".")+'/uploads/'; // path.resolve(“.”) get application directory path
+
+    var newPath = dirname +   req.files.image.originalFilename; // add the file name
+
+    fs.writeFile(newPath, data, function (err) { // write file in uploads folder
+
+    if(err){
+
+    res.json("Failed to upload your file");
+
+    }else {
+
+  res.redirect('/users/fileupload');
+
+}
+
+});
+
+});
+
+ 
+
+});
+
+ 
+router.get('/uploads/:file', function (req, res){
+
+  	var path=require('path');
+
+    file = req.params.file;
+
+    var dirname = path.resolve(".")+'/uploads/';
+
+    var img = fs.readFileSync(dirname  + file);
+
+    res.writeHead(200, {'Content-Type': 'image/jpg' });
+
+    res.end(img, 'binary');
+
+});
+
+router.get('/download', function(req, res) { // create download route
+
+  var path=require('path'); // get path
+
+  var dir=path.resolve(".")+'/uploads'; // give path
+
+    fs.readdir(dir, function(err, list) { // read directory return  error or list
+
+    if (err) return res.json(err);
+
+    else
+
+                res.json(list);
+
+                });
+
+});
+
 
 function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){
