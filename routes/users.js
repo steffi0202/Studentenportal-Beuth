@@ -49,6 +49,11 @@ router.get('/fileupload', ensureAuthenticated, function(req, res){
 	res.render('fileupload');
 });
 
+// Events
+router.get('/events', ensureAuthenticated, function(req, res){
+	res.render('events');
+});
+
 function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){
 		return next();
