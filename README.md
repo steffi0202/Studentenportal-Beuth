@@ -1,6 +1,6 @@
 # Studentenportal-Beuth
 1) siehe "Zusammenfassung_MEAN_V2.pdf"
-    Vorher evtl. "npm install --save" ausführen, um notwendige Pakete zu installieren.
+    Vorher evtl. in der node_pfad bash "npm install --save" ausführen, um notwendige Pakete zu installieren.
 2) GitHub starten und Repository nach "C:\nodeprojects\" clonen
 
 ## Datenbankeinträge prüfen unter mongo.exe:
@@ -17,7 +17,7 @@
 
 - Tests definieren im Unterordner test
 
-- mocha, chai und chai-http installieren mit "npm install mocha chai chai-http --save-dev"
+- in der node_pfad bash : mocha, chai und chai-http installieren mit "npm install mocha chai chai-http --save-dev"
 
 - "npm install mocha -g" ausführen
 
