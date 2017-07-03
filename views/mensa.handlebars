@@ -1,129 +1,151 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 
-<head>
 
-</head>
+<header>
+        <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+  <!-- Overlay -->
+  <div class="overlay"></div>
 
-<body>
-
-
-    <header>
-        <div class="header-content">
-            <div class="header-content-inner">
-                <h1 id="homeHeading">Bewerte deinen Studiengang!</h1>
-                <hr>
-                <p>Bewerte deine Module und Dozenten und erfahre, wie andere Studenten bewertet haben .... Text folgt....</p>
-              
-            </div>
-        </div>
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#bs-carousel" data-slide-to="1"></li>
+    <li data-target="#bs-carousel" data-slide-to="2"></li>
+  </ol>
+  
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item slides active">
+      <div class="slide-1"></div>
+      <div class="hero">
+        <button class="btn btn-hero btn-lg" role="button">Weitere Info's</button>
+      </div>
+    </div>
+    <div class="item slides">
+      <div class="slide-2"></div>
+      <div class="hero">        
+        <hgroup>
+            <h1>Event #2</h1>        
+            <h3>Hier steht was zum Event</h3>
+        </hgroup>       
+        <button class="btn btn-hero btn-lg" role="button">Weitere Info's</button>
+      </div>
+    </div>
+    <div class="item slides">
+      <div class="slide-3"></div>
+      <div class="hero">        
+        <hgroup>
+            <h1>Event #3</h1>        
+            <h3>Hier steht was zum Event</h3>
+        </hgroup>
+        <button class="btn btn-hero btn-lg" role="button">Weitere Info's</button>
+      </div>
+    </div>
+  </div> 
+</div>
     </header>
-    <section class="bg-primary" id="bewerten">
 
-        <div class="container">
-            <div class="row">
-    
-    <div class="call-to-action">
-    <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Bewerte jetzt deinen Studiengang!</h2>
-                    <hr class="light">
-                    <p class="text-faded">Hilf anderen Studenten und teile deinen Content und deine Erfahrungen zum Studium hier!</p>
-                    <!--form method="post" action="/addranking"-->
-					
-                    <form method="post" action="/users/bewertung">					
-                    
-					<div class="form-group">
-                        <label for="Studiengang">Wähle das Semester:</label>
-                            <select class="form-control" id="Semester" name="semester">
-                                 <option>Wintersemester 2009 / 2010</option>
-                                 <option>Sommersemester 2010</option>
-                                 <option>Wintersemester 2010 / 2011</option>
-                                 <option>Sommersemester 2011</option>
-                                 <option>Wintersemester 2011 / 2012</option>
-                                 <option>Sommersemester 2012</option>
-                                 <option>Wintersemester 2012 / 2013</option>
-                                 <option>Sommersemester 2013</option>
-								 <option>Wintersemester 2013 / 2014</option>
-                                 <option>Sommersemester 2014</option>
-                                 <option>Wintersemester 2014 / 2015</option>
-                                 <option>Sommersemester 2015</option>
-                                 <option>Wintersemester 2015 / 2016</option>
-                                 <option>Sommersemester 2016</option>
-                                 <option>Wintersemester 2016 / 2017</option>
-                                 <option>Sommersemester 2017</option>
-                            </select>
-                     </div>
-					
-					<div class="form-group">
-                        <label for="Studiengang">Wähle deinen Studiengang:</label>
-                            <select class="form-control" id="Studiengang" name="studiengang">
-                                 <option>Wirtschaftsinformatik - Online</option>
-                                 <option>Medieninformatik - Online</option>
-                                 <option>3</option>
-                                 <option>4</option>
-                                 <option>5</option>
-                            </select>
-                     </div>
-					 
-                     <div class="form-group">
-                        <label for="Modul">Wähle dein Modul:</label>
-                            <select class="form-control" id="Modul" name="modul">
-                                 <option>Business Engineering</option>
-                                 <option>Operations Research</option>
-                                 <option>3</option>
-                                 <option>4</option>
-                                 <option>5</option>
-                            </select>
-                     </div>
-					 
-                     <div class="form-group">
-                        <label for="Zeitaufwand">Wieviel Stunden hast du pro Woche für das Modul benötigt?</label>
-                            <select class="form-control" id="Zeitaufwand" name="aufwand">
-                                 <option>1</option>
-                                 <option>2</option>
-                                 <option>3</option>
-                                 <option>4</option>
-                                 <option>5</option>
-                                 <option>>5</option>
-                            </select>
-                     </div>
 
-                      <div class="form-group">
-                        <label for="Textarea-Modul">Beschreibe das Modul</label>
-                            <textarea class="form-control" id="Textarea-Modul" rows="3" name="modulbeschreibung"></textarea>
-                      </div>
-						 
-                      <div class="form-group">
-                        <label for="Dozent">Wer hat das Modul unterrichtet:</label>
-                            <select class="form-control" id="Modul" name="dozent">
-                                 <option>Prof. Dr. Peter Weimann</option>
-                                 <option>Jane Brosnan</option>
-                                 <option>3</option>
-                                 <option>4</option>
-                                 <option>5</option>
-                            </select>
-                     </div>
-					 
-                     <div class="form-group">
-                        <label for="Textarea-Dozent">Was ist dir zu deinem Dozenten besondern im Gedächtnis geblieben?</label>
-                            <textarea class="form-control" id="Textarea-Dozent" rows="3" name="dozentbeschreibung"></textarea>
-                     </div>
-                         
-						<div>
-							<label for="star-rating">Wie viele Sterne bekommt das Modul und der Dozent von dir?</label>
-							<input id="input-21b" value="4" type="text" class="rating" data-min=0 data-max=5 data-step=0.2 data-size="lg"
-							required title="" name="bewertung">
-							<div class="clearfix"></div>
-							<hr>
+<body id="page-top">
+
+    <section class="no-padding" id="portfolio">
+        <div class="container-fluid">
+            <div class="row no-gutter popup-gallery">
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/portfolio/fullsize/1.jpg" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Event
+                                </div>
+                                <div class="project-name">
+                                    noch ein Satz
+                                </div>
+                            </div>
                         </div>
-                        <input type="submit" class="page-scroll btn btn-default btn-xl sr-button" value="bewerten">
-                        </form>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/portfolio/fullsize/2.jpg" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Event
+                                </div>
+                                <div class="project-name">
+                                    Noch ein Satz
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/portfolio/fullsize/3.jpg" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Event
+                                </div>
+                                <div class="project-name">
+                                    Noch ein Satz
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/portfolio/fullsize/4.jpg" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/4.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Event
+                                </div>
+                                <div class="project-name">
+                                    Noch ein Satz
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/portfolio/fullsize/5.jpg" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Event
+                                </div>
+                                <div class="project-name">
+                                    Noch ein Satz
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/portfolio/fullsize/6.jpg" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Event
+                                </div>
+                                <div class="project-name">
+                                    Noch ein Satz
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
-
-    <!--section id="contact">
+    <section id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
@@ -141,22 +163,24 @@
                 </div>
             </div>
         </div>
-    </section-->
+    </section>
 
     <!-- jQuery -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="../vendor/scrollreveal/scrollreveal.min.js"></script>
-    <script src="../vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
     <!-- Theme JavaScript -->
-    <script src="../js/creative.min.js"></script>
+    <script src="js/creative.min.js"></script>
 
 </body>
 
 </html>
+
+
