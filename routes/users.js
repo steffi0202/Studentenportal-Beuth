@@ -49,6 +49,11 @@ router.get('/fileupload', ensureAuthenticated, function(req, res){
 	res.render('fileupload');
 });
 
+// Mensa
+router.get('/mensa', ensureAuthenticated, function(req, res){
+    res.render('mensa');
+});
+
 // Events
 router.get('/events', ensureAuthenticated, function(req, res){
 	res.render('events');
